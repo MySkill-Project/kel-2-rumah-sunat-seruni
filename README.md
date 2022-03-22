@@ -18,7 +18,7 @@
 
 ##### Catatan untuk Back End
 
-Konfigurasi database bisa disesuaikan dengan file yang ada di connection.js
+Konfigurasi database bisa disesuaikan dengan file yang ada di connection.js\
 Perintah membuat database pada postgres.
 
 ```
