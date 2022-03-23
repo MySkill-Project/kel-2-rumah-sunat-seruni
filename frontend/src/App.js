@@ -6,59 +6,22 @@ import Intro from "./components/Intro";
 import { colors } from "./utils/utility";
 import ContentBody from "./components/ContentBody";
 import Footer from "./components/Footer";
+import {
+  bodyData1 as bodyText1,
+  bodyData2 as bodyText2,
+  bodyData3 as bodyText3,
+  footerData as footerText,
+  introData as introText,
+  navData as navText,
+} from "./res/text";
 
 const articleService = new ArticleServices();
-
-const navData = [
-  { id: 0, text: "Tentang Kami" },
-  { id: 1, text: "Konsultasi" },
-  { id: 2, text: "Kontak" },
-];
-
-const introData = {
-  title: "Mau Sunat?",
-  description:
-    "Rumah sunat seruni melayani sunat di klinik maupun di rumah anda.",
-  image: "",
-};
-
-const bodyData1 = {
-  title: "Kenapa memilih kami?",
-  description1:
-    "Rumah sunat Seruni berdirisejak tahun 2002 dengan layanan utama khitan / Sunat modern, perawatan luka dan pengobatan umum. Sunat menggunakan metode alat changgih dan modern.",
-  description2:
-    "Kami melayani sunat untuk Bayi, Anak, Orang Dewasa dengan menggunakan metode sunat yang canggih tanpa rasa sakit atau minim nyeri dan juga cepat sembuh.",
-  description3:
-    "Dengan metode yang lebih canggih membuat sunat menjadi lebih menyenangkan. Selain minim nyeri dan cepat sembuh, kami juga menggunakan metode tanpa penjahitan sehingga hasil sangat rapi dan anak bisa langsung beraktifitas maupun terkena air.",
-  description4: "# AyoSunat bersama Rumah Sunat Seruni",
-  list: [
-    {
-      title: "Tenaga medis Professional",
-    },
-    {
-      title: "Metode Canggih",
-    },
-    {
-      title: "Penyembuhat Cepat",
-    },
-    {
-      title: "Harga Terjangkau",
-    },
-  ],
-};
-
-const bodyData2 = {
-  title: "Testimoni Pasien",
-  list: [
-    { title: "Testimoni 1" },
-    { title: "Testimoni 2" },
-    { title: "Testimoni 3" },
-  ],
-};
-
-const bodyData3 = {
-  title: "Artikel dan Berita",
-};
+const navData = navText;
+const introData = introText;
+const bodyData1 = bodyText1;
+const bodyData2 = bodyText2;
+const bodyData3 = bodyText3;
+const footerData = footerText;
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -112,7 +75,7 @@ const App = () => {
         </ContentBody>
         <ContentBody title={bodyData3.title}></ContentBody>
       </div>
-      <Footer />
+      <Footer style={styles.footer} data={footerData} />
     </>
   );
 };
@@ -125,6 +88,11 @@ const styles = {
   body: {
     backgroundColor: colors.cream,
     padding: "0 100px",
+  },
+  footer: {
+    backgroundColor: colors.white,
+    fontSize: "12px",
+    padding: "30px 100px",
   },
 };
 
