@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import ArticleServices from "./services/ArticleServices";
 import Header from "./components/Header";
 import Intro from "./components/Intro";
-
-import { colors } from "./utils/utility";
+import Carousel from "framer-motion-carousel";
 import ContentBody from "./components/ContentBody";
 import Footer from "./components/Footer";
+
+import { colors } from "./utils/utility";
+
 import {
   bodyData1 as bodyText1,
   bodyData2 as bodyText2,
@@ -29,7 +31,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await articleService.getArticles();
-      console.log(result);
+      console.log(result.data);
       setArticles(result.data);
     };
 
@@ -73,7 +75,18 @@ const App = () => {
             ))}
           </div>
         </ContentBody>
-        <ContentBody title={bodyData3.title}></ContentBody>
+        <ContentBody style={body3Style.container} title={bodyData3.title}>
+          <Carousel>
+            {articles.map((a) => {
+              console.log(a);
+              return (
+                <div key={a.id} style={body3Style.itemContainer}>
+                  <img src={a.photoUrls[0]} alt="article" />
+                </div>
+              );
+            })}
+          </Carousel>
+        </ContentBody>
       </div>
       <Footer style={styles.footer} data={footerData} />
     </>
@@ -88,11 +101,24 @@ const styles = {
   body: {
     backgroundColor: colors.cream,
     padding: "0 100px",
+    paddingBottom: "50px",
   },
   footer: {
     backgroundColor: colors.white,
     fontSize: "12px",
     padding: "30px 100px",
+  },
+};
+
+const body3Style = {
+  container: {
+    margin: "0 auto",
+  },
+  itemContainer: {
+    width: "100%",
+    height: "400px",
+    borderRadius: "16px",
+    backgroundColor: colors.green,
   },
 };
 
