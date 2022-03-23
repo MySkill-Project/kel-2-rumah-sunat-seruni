@@ -50,12 +50,13 @@ const styles = {
     justifyContent: "space-between",
     flexWrap: "wrap",
     padding: "30px 0",
+    columnGap: "20px",
   },
   intro: {
     width: "50%",
   },
   image: {
-    width: "50%",
+    width: "40%",
     height: "200px",
     borderRadius: "16px",
     backgroundColor: colors.green,
